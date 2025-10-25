@@ -25,14 +25,14 @@ public class KitchenSecret {
             .lines()
             .map(str -> {
                 String[] instructions = str.split(",");
-                return processInstruction(instructions);
+                return solve(instructions);
             })
             .forEach(System.out::print);
 
         reader.close();
     }
 
-    private static char processInstruction(String[] instructions) {
+    private static char solve(String[] instructions) {
         int row = 0;
         int col = 0;
         int lowerBound = 0;
