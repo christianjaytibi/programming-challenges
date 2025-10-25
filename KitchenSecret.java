@@ -10,11 +10,17 @@ import java.nio.file.Path;
 
 public class KitchenSecret {
     static final String filePath = "hyperskill-dataset-117344221.txt";
+    static final char[][] keypad = new char[][] {
+        {'A', 'B', 'C', 'D'},
+        {'E', 'F', 'G', 'H'},
+        {'I', 'J', 'K', 'L'},
+        {'M', 'N', 'O', 'P'}
+    };
 
     public static void main(String[] args) throws IOException {
         Path path  = Path.of(filePath);
-
         BufferedReader reader = Files.newBufferedReader(path);
+        
         reader
             .lines()
             .map(str -> {
@@ -27,17 +33,10 @@ public class KitchenSecret {
     }
 
     private static char processInstruction(String[] instructions) {
-        char[][] letters = new char[][] {
-            {'A', 'B', 'C', 'D'},
-            {'E', 'F', 'G', 'H'},
-            {'I', 'J', 'K', 'L'},
-            {'M', 'N', 'O', 'P'}
-        };
-
         int row = 0;
         int col = 0;
         int lowerBound = 0;
-        int upperBound = letters.length - 1;
+        int upperBound = keypad.length - 1;
 
         for (String instruction : instructions) {
             if (instruction.equals("UP") && row == lowerBound)
@@ -57,6 +56,7 @@ public class KitchenSecret {
             }
         }
 
-        return letters[row][col];
+        return keypad[row][col];
     }
 }
+
