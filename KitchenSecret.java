@@ -41,11 +41,11 @@ public class KitchenSecret {
         for (String instruction : instructions) {
             if (instruction.equals("UP") && row == lowerBound)
                 continue;
-            else if (instruction.equals("DOWN") && row == upperBound)
+            if (instruction.equals("DOWN") && row == upperBound)
                 continue;
-            else if (instruction.equals("LEFT") && col == lowerBound)
+            if (instruction.equals("LEFT") && col == lowerBound)
                 continue;
-            else if (instruction.equals("RIGHT") && col == upperBound)
+            if (instruction.equals("RIGHT") && col == upperBound)
                 continue;
 
             switch (instruction) {
