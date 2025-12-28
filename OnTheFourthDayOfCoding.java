@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class OnTheFourthDayOfCoding {
-    private static final String fileName = "out/production/LearnJava/twelvedaysofcoding/hyperskill-dataset-119026486.txt";
+    private static final String fileName = "hyperskill-dataset-119026486.txt";
 
     public static void main(String[] args) throws FileNotFoundException {
         Scanner sc = new Scanner(new File(fileName));
