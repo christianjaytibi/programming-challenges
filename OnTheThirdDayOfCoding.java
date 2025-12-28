@@ -37,15 +37,17 @@ public class OnTheThirdDayOfCoding {
 
     private static double calculateScore(String password) {
         double score = password.length();
+        String[] rules = {
+            ".*[a-z].*",
+            ".*[A-Z].*",
+            ".*[0-9].*",
+            ".*[!@#$%^&*].*"
+        };
 
-        if (!password.matches(".*[a-z].*"))
-            score *= 0.75;
-        if (!password.matches(".*[A-Z].*"))
-            score *= 0.75;
-        if (!password.matches(".*[0-9].*"))
-            score *= 0.75;
-        if (!password.matches(".*[!@#$%^&*].*"))
-            score *= 0.75;
+        for (String rule : rules) {
+            if (!password.matches(rule))
+                score *= 0.75;
+        }
 
         Map<Character, Integer> freq = new HashMap<>();
         for (char ch : password.toCharArray()) {
